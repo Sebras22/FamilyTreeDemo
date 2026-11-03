@@ -1,0 +1,246 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  text-decoration: none;
+  color: var(--muted);
+  margin-bottom: 0.8rem;
+}
+.profile-hero {
+  padding: 0.5rem 0 0.25rem;
+}
+.profile-id {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.profile-id h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  letter-spacing: -0.02em;
+}
+.profile-id .lead {
+  font-size: 1.15rem;
+  margin: 0.2rem 0;
+}
+.avatar.xl {
+  width: 120px;
+  height: 120px;
+  font-size: 2.8rem;
+  border: 4px solid var(--surface);
+  box-shadow: var(--shadow);
+}
+.avatar.xl.sex-male {
+  outline: 3px solid var(--male);
+}
+.avatar.xl.sex-female {
+  outline: 3px solid var(--female);
+}
+.profile-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+}
+.profile-main,
+.profile-side {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.profile .card {
+  margin: 0;
+}
+.profile .card h2 {
+  margin-bottom: 0.75rem;
+}
+.life-timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 0.5rem;
+  border-left: 2px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+.life-timeline li {
+  display: flex;
+  gap: 0.9rem;
+  position: relative;
+}
+.life-timeline li::before {
+  content: '';
+  position: absolute;
+  left: calc(-0.5rem - 7px);
+  top: 0.45rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 0 4px var(--surface);
+}
+.life-timeline .year {
+  min-width: 3.4rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+.facts {
+  margin: 0 0 0.6rem;
+  display: grid;
+  gap: 0.35rem;
+}
+.facts > div {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: 0.75rem;
+}
+.facts dt {
+  color: var(--muted);
+}
+.facts dd {
+  margin: 0;
+}
+.mini-card {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.5rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  color: inherit;
+  border-left: 4px solid var(--border);
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+.mini-card:hover {
+  background: var(--surface-2);
+  transform: translateX(2px);
+}
+.mini-card.sex-male {
+  border-left-color: var(--male);
+}
+.mini-card.sex-female {
+  border-left-color: var(--female);
+}
+.mini-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.mini-card .avatar {
+  width: 42px;
+  height: 42px;
+  flex: none;
+}
+.profile-side .card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.wizard-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  background: var(--bg);
+}
+.wizard-art {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(160deg, color-mix(in srgb, var(--primary) 20%, var(--surface)), var(--surface-2));
+}
+.wizard-art .illustration {
+  max-width: 340px;
+}
+.wizard-art h2 {
+  font-size: 1.8rem;
+  letter-spacing: -0.02em;
+  margin-top: 0.8rem;
+}
+.wizard-art p {
+  margin: 0;
+  max-width: 28ch;
+  color: var(--muted);
+}
+.wizard-form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem clamp(1.2rem, 5vw, 4.5rem);
+  max-width: 640px;
+  margin: 0 auto;
+  width: 100%;
+  overflow: auto;
+}
+.wizard-form h1 {
+  font-size: clamp(1.7rem, 3.4vw, 2.4rem);
+  letter-spacing: -0.02em;
+}
+.wizard-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+.wizard-progress {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+.wizard-progress span {
+  flex: 1;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  transition: background 0.3s ease;
+}
+.wizard-progress span.on {
+  background: var(--primary);
+}
+.big-action {
+  padding: 0.8rem 2rem;
+  font-size: 1.05rem;
+}
+
+@media (max-width: 800px) {
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+  .facts > div {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .wizard-screen {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+  .wizard-art {
+    padding: 1rem;
+  }
+  .wizard-art .illustration {
+    max-width: 150px;
+  }
+  .wizard-art p {
+    display: none;
+  }
+  .wizard-art h2 {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+  .wizard-form {
+    justify-content: flex-start;
+    padding-top: 1.5rem;
+  }
+}

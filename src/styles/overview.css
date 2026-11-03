@@ -1,0 +1,450 @@
+.illustration {
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+}
+.il-p {
+  fill: var(--primary);
+}
+.il-p2 {
+  fill: color-mix(in srgb, var(--primary) 14%, transparent);
+}
+.il-m {
+  fill: var(--male);
+}
+.il-f {
+  fill: var(--female);
+}
+.il-s {
+  fill: var(--surface);
+}
+.il-s2 {
+  fill: var(--surface-2);
+}
+.il-stroke {
+  stroke: var(--border);
+  stroke-width: 1.5;
+}
+.il-line {
+  stroke: color-mix(in srgb, var(--muted) 55%, transparent);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.il-line-fill {
+  fill: color-mix(in srgb, var(--muted) 55%, transparent);
+}
+.il-p-stroke {
+  stroke: var(--primary);
+}
+.il-shadow {
+  fill: color-mix(in srgb, var(--muted) 18%, transparent);
+}
+.soft {
+  opacity: 0.45;
+}
+
+.empty-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.4rem;
+  padding: 1.5rem 1rem;
+  max-width: 420px;
+  margin: 0 auto;
+}
+.empty-block h3 {
+  font-size: 1.35rem;
+  margin: 0.4rem 0 0;
+}
+.empty-block p {
+  margin: 0 0 0.6rem;
+}
+.center-row {
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.empty-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.35rem;
+  padding: 0.5rem 1rem 0;
+}
+.tabs button {
+  background: transparent;
+  border-color: transparent;
+  color: var(--muted);
+  font-weight: 600;
+}
+.tabs button.active {
+  background: color-mix(in srgb, var(--primary) 16%, transparent);
+  color: var(--text);
+}
+
+.dash {
+  flex: 1;
+  overflow: auto;
+  padding: 1.25rem;
+  max-width: 1150px;
+  width: 100%;
+  margin: 0 auto;
+}
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.tile {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 1.1rem 1.25rem;
+  background: var(--surface);
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.tile strong {
+  font-size: 2.6rem;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+.tile-icon {
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--primary) 16%, transparent);
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+.dash-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+.dash-grid .card {
+  margin: 0;
+}
+.dash-grid .span2 {
+  grid-column: span 2;
+}
+.card.highlight {
+  background: linear-gradient(140deg, color-mix(in srgb, var(--primary) 22%, var(--surface)), var(--surface));
+}
+.big-link {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.columns {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  height: 190px;
+  padding-top: 1rem;
+}
+.column {
+  flex: 1;
+  min-width: 26px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.2rem;
+}
+.column .bar {
+  width: 100%;
+  border-radius: 10px 10px 4px 4px;
+  background: linear-gradient(180deg, var(--primary), color-mix(in srgb, var(--primary) 45%, transparent));
+  transition: height 0.5s ease;
+}
+.column .value {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+.column .label {
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+.donut {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+.donut svg {
+  width: 130px;
+  flex: none;
+}
+.donut-track {
+  fill: none;
+  stroke: var(--surface-2);
+  stroke-width: 16;
+}
+.donut-part {
+  fill: none;
+  stroke-width: 16;
+}
+.donut-part.male,
+.dot.male {
+  stroke: var(--male);
+  background: var(--male);
+}
+.donut-part.female,
+.dot.female {
+  stroke: var(--female);
+  background: var(--female);
+}
+.donut-part.other,
+.dot.other {
+  stroke: var(--muted);
+  background: var(--muted);
+}
+.donut-total {
+  font-size: 22px;
+  font-weight: 800;
+  fill: var(--text);
+}
+.donut ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.donut .dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.ranking {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+.ranking li {
+  display: grid;
+  grid-template-columns: minmax(70px, 1fr) 2fr auto;
+  align-items: center;
+  gap: 0.6rem;
+}
+.rank-bar,
+.progress-bar {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  overflow: hidden;
+}
+.rank-bar div,
+.progress-bar .fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--primary);
+  transition: width 0.5s ease;
+}
+.progress-bar .fill.warn {
+  background: var(--warn);
+}
+.progress-bar .fill.good {
+  background: var(--success);
+}
+.quality {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.1rem;
+}
+.quality .progress-bar {
+  margin-top: 0.4rem;
+}
+.row.between {
+  justify-content: space-between;
+}
+.quality-actions {
+  margin-top: 1rem;
+}
+.chip.ok {
+  background: var(--success-bg);
+  color: var(--success);
+}
+.day-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--primary) 16%, transparent);
+  font-weight: 800;
+}
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+.timeline li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.tips {
+  margin-top: 3rem;
+}
+.tips h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+}
+.tip {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  padding: 1.1rem;
+  background: var(--surface);
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.tip .illustration {
+  max-width: 100%;
+  margin-bottom: 0.4rem;
+}
+.tip h3 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+.tip p {
+  margin: 0 0 0.5rem;
+}
+
+.legend {
+  background: color-mix(in srgb, var(--surface) 85%, transparent);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow);
+  padding: 0.15rem;
+}
+.legend ul {
+  list-style: none;
+  margin: 0;
+  padding: 0.4rem 0.7rem 0.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+}
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.swatch-bar {
+  width: 6px;
+  height: 18px;
+  border-radius: 3px;
+}
+.swatch-bar.male {
+  background: var(--male);
+}
+.swatch-bar.female {
+  background: var(--female);
+}
+.swatch-box {
+  width: 22px;
+  height: 14px;
+  border-radius: 5px;
+  border: 2px solid var(--border);
+}
+.swatch-box.floating {
+  border-style: dashed;
+  opacity: 0.6;
+}
+.swatch-box.warning {
+  border-color: var(--warn);
+}
+.swatch-box.doubt {
+  border-color: var(--doubt);
+}
+.swatch-line {
+  width: 22px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--couple);
+}
+
+@media (max-width: 800px) {
+  .dash-grid .span2 {
+    grid-column: span 1;
+  }
+  .donut {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .legend {
+    transform: scale(0.92);
+    transform-origin: top left;
+  }
+}
+
+.places-layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 340px) 1fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+.france-map svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.france-map .dep {
+  fill: var(--surface-2);
+  stroke: var(--border);
+  stroke-width: 0.6;
+  stroke-linejoin: round;
+  transition: fill 0.15s ease, fill-opacity 0.2s ease;
+}
+.france-map .dep.filled {
+  fill: var(--primary);
+}
+.france-map .dep.hot {
+  stroke: var(--text);
+  stroke-width: 1.2;
+}
+.france-caption {
+  margin: 0.4rem 0 0;
+  text-align: center;
+  min-height: 1.4em;
+}
+@media (max-width: 800px) {
+  .places-layout {
+    grid-template-columns: 1fr;
+  }
+}

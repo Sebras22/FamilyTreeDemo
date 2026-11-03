@@ -1,0 +1,13 @@
+:root[data-mantine-color-scheme] {
+  --mantine-color-body: var(--surface);
+  --mantine-color-text: var(--text);
+  --mantine-color-dimmed: var(--muted);
+  --mantine-color-error: var(--danger);
+  --mantine-radius-default: var(--radius-sm);
+}
+.mantine-modal-content {
+  border-radius: var(--radius);
+}
+.mantine-modal-header {
+  border-bottom: 1px solid var(--border);
+}

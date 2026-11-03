@@ -1,0 +1,22 @@
+.error-page {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+.error-code {
+  font-size: clamp(4.5rem, 18vw, 9rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--primary);
+  opacity: 0.9;
+}
+.error-details {
+  text-align: left;
+  font-size: 0.8rem;
+  overflow: auto;
+  max-height: 8rem;
+}

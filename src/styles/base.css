@@ -1,0 +1,282 @@
+:root {
+  --bg: #f7f7f8;
+  --surface: #ffffff;
+  --surface-2: #f1f2f4;
+  --text: #222222;
+  --muted: #6b7280;
+  --border: #e3e5e9;
+  --primary: #e8445f;
+  --primary-text: #ffffff;
+  --danger: #c0392b;
+  --danger-bg: #fdecea;
+  --success-bg: #e6f6ec;
+  --success: #1e7a43;
+  --warn: #d92d20;
+  --doubt: #e8890c;
+  --edge: #8b94a3;
+  --couple: #d6409f;
+  --male: #4b86f0;
+  --female: #e0589e;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --border-width: 1px;
+  --shadow: 0 2px 10px rgba(16, 24, 40, 0.08);
+  --heading-transform: none;
+  --heading-spacing: 0;
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  --bg: #121316;
+  --surface: #1c1d21;
+  --surface-2: #26282d;
+  --text: #ececf0;
+  --muted: #a0a6b2;
+  --border: #33363d;
+  --danger: #ff7a6b;
+  --danger-bg: #3a1d1a;
+  --success-bg: #14301f;
+  --success: #5fd08d;
+  --warn: #ff6b5e;
+  --doubt: #ffa23a;
+  --edge: #8d97a8;
+  --couple: #f06bb8;
+  --male: #6f9cf5;
+  --female: #f08ab8;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Mukta Mahee', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  font-size: 16px;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--primary);
+}
+
+h1 {
+  font-size: 1.6rem;
+  margin: 0 0 1rem;
+  text-transform: var(--heading-transform);
+  letter-spacing: var(--heading-spacing);
+}
+h2 {
+  font-size: 1.2rem;
+  margin: 0;
+  text-transform: var(--heading-transform);
+  letter-spacing: var(--heading-spacing);
+}
+h3 {
+  font-size: 1rem;
+  margin: 0 0 0.4rem;
+  text-transform: var(--heading-transform);
+  letter-spacing: var(--heading-spacing);
+}
+
+input:where(:not([class*='mantine-'])),
+select:where(:not([class*='mantine-'])),
+textarea:where(:not([class*='mantine-'])),
+button:where(:not([class*='mantine-'])) {
+  font: inherit;
+  color: inherit;
+}
+
+input:where(:not([class*='mantine-'])),
+select:where(:not([class*='mantine-'])),
+textarea:where(:not([class*='mantine-'])) {
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  min-width: 0;
+  max-width: 100%;
+}
+input:focus:where(:not([class*='mantine-'])),
+select:focus:where(:not([class*='mantine-'])),
+textarea:focus:where(:not([class*='mantine-'])),
+button:focus-visible:where(:not([class*='mantine-'])) {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+}
+input:disabled:where(:not([class*='mantine-'])) {
+  opacity: 0.6;
+}
+textarea:where(:not([class*='mantine-'])) {
+  width: 100%;
+  resize: vertical;
+}
+
+button:where(:not([class*='mantine-'])),
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--text);
+}
+button:hover:not(:disabled):where(:not([class*='mantine-'])),
+.button:hover {
+  background: var(--surface-2);
+}
+button:disabled:where(:not([class*='mantine-'])) {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+button.primary:where(:not([class*='mantine-'])),
+.button.primary {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--primary-text);
+}
+button.primary:hover:not(:disabled):where(:not([class*='mantine-'])),
+.button.primary:hover {
+  filter: brightness(1.08);
+  background: var(--primary);
+}
+button.danger:where(:not([class*='mantine-'])),
+.danger {
+  color: var(--danger);
+}
+button.icon:where(:not([class*='mantine-'])) {
+  padding: 0.15rem 0.45rem;
+  background: transparent;
+  border-color: transparent;
+  line-height: 1;
+  font-size: 1.1rem;
+}
+button.link:where(:not([class*='mantine-'])) {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--primary);
+  text-align: left;
+}
+button.link:hover:where(:not([class*='mantine-'])) {
+  text-decoration: underline;
+  background: none;
+}
+select.compact:where(:not([class*='mantine-'])) {
+  padding: 0.25rem 0.4rem;
+}
+
+label:where(:not([class*='mantine-'])) {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+label > input:where(:not([class*='mantine-'])),
+label > select:where(:not([class*='mantine-'])),
+label > textarea:where(:not([class*='mantine-'])) {
+  color: var(--text);
+  font-size: 1rem;
+}
+label.checkbox {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+label.checkbox.small {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+label.checkbox input {
+  margin: 0;
+}
+
+.muted {
+  color: var(--muted);
+}
+.small {
+  font-size: 0.8rem;
+}
+.center {
+  text-align: center;
+}
+.pad {
+  padding: 1rem;
+}
+
+.error,
+.notice {
+  padding: 0.6rem 0.9rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.75rem;
+}
+.error {
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+.notice {
+  background: var(--surface-2);
+}
+
+.row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.row.wrap {
+  flex-wrap: wrap;
+}
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+.stack.tight {
+  gap: 0.4rem;
+}
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+.grid3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 110px;
+  gap: 0.5rem;
+}
+
+.card {
+  background: var(--surface);
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: var(--shadow);
+}
+
+.chip {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  margin-left: 0.4rem;
+  border-radius: 999px;
+  background: var(--surface-2);
+  font-size: 0.78rem;
+  color: var(--muted);
+}

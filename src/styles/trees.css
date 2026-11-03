@@ -1,0 +1,174 @@
+.page.wide {
+  max-width: 1100px;
+}
+.hero-banner {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding: 1.5rem 0 1.5rem;
+}
+.hero-banner h1 {
+  margin: 0;
+}
+.eyebrow {
+  margin: 0 0 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+.stats {
+  display: flex;
+  gap: 1.8rem;
+}
+.stats div {
+  display: flex;
+  flex-direction: column;
+}
+.stats strong {
+  font-size: 2.6rem;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+.stats span {
+  color: var(--muted);
+}
+.create-bar {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  padding: 0.6rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+  margin-bottom: 1.5rem;
+}
+.create-bar .mantine-TextInput-root {
+  flex: 1;
+  min-width: 180px;
+}
+.create-bar input[type='text'],
+.create-bar input:not([type]) {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.cover-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.1rem;
+}
+.cover-grid li {
+  position: relative;
+}
+.cover {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 250px;
+  border-radius: var(--radius);
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-decoration: none;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease;
+}
+.cover:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.35);
+}
+.cover-text {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1.1rem 1.25rem;
+}
+.cover-text strong {
+  font-size: 1.7rem;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+}
+.cover-text .chip {
+  align-self: flex-start;
+  margin: 0;
+  background: rgba(255, 255, 255, 0.22);
+  color: #fff;
+  backdrop-filter: blur(6px);
+}
+.cover-actions {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  display: flex;
+  gap: 0.2rem;
+}
+.cover-actions button {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+  border-radius: 50%;
+}
+.empty-hero,
+.empty-state[style] {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  min-height: 340px;
+  border-radius: var(--radius);
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+  padding: 2rem;
+  overflow: hidden;
+}
+.empty-hero p,
+.empty-state[style] p {
+  position: relative;
+  font-size: 1.3rem;
+  font-weight: 700;
+  max-width: 30ch;
+  margin: 0;
+}
+.empty-state[style] .row {
+  position: relative;
+}
+.empty-state[style] {
+  margin: 1.5rem;
+  flex: 1;
+}
+
+@media (max-width: 800px) {
+  .create-bar {
+    border-radius: var(--radius);
+  }
+}
+
+.react-flow__minimap {
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.hero-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(5, 5, 12, 0.55) 0%, rgba(5, 5, 12, 0.1) 40%, rgba(5, 5, 12, 0.82) 100%),
+    linear-gradient(120deg, color-mix(in srgb, var(--primary) 45%, transparent), transparent 60%);
+}

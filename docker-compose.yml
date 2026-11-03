@@ -1,0 +1,9 @@
+name: familytree-demo
+
+services:
+  demo:
+    build: .
+    container_name: familytree-demo
+    restart: unless-stopped
+    ports:
+      - "3000:80"

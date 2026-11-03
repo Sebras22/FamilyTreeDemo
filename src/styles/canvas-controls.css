@@ -1,0 +1,203 @@
+.person-card .detail {
+  font-size: 0.74rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.person-card.level-0 .card-text .muted,
+.person-card.level-0 .avatar span {
+  display: none;
+}
+.person-card.level-0 .card-text strong {
+  font-size: 1.35rem;
+  line-height: 1.1;
+  -webkit-line-clamp: 3;
+}
+.person-card.level-0 .avatar {
+  width: 22px;
+  height: 22px;
+}
+
+.add-btn {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--primary-text);
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 3;
+}
+.add-btn.top {
+  top: -12px;
+  left: 50%;
+  margin-left: -11px;
+}
+.add-btn.right {
+  right: -12px;
+  top: 50%;
+  margin-top: -11px;
+}
+.add-btn.bottom {
+  bottom: -12px;
+  left: 78%;
+}
+.person-card:hover .add-btn,
+.person-card.selected .add-btn {
+  opacity: 1;
+  transform: scale(1);
+}
+.add-btn:hover:not(:disabled) {
+  background: var(--primary);
+  filter: brightness(1.1);
+}
+@media (hover: none) {
+  .person-card.selected .add-btn {
+    opacity: 1;
+  }
+}
+
+.menu {
+  position: relative;
+}
+.context-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 6px);
+  z-index: 60;
+  min-width: 220px;
+  list-style: none;
+  margin: 0;
+  padding: 0.35rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.25);
+}
+.context-menu {
+  position: fixed;
+  right: auto;
+  top: auto;
+  z-index: 120;
+}
+.context-menu li {
+  display: block;
+}
+.context-menu button {
+  width: 100%;
+  justify-content: flex-start;
+  border-radius: 8px;
+  padding: 0.5rem 0.7rem;
+}
+.context-title {
+  padding: 0.35rem 0.7rem;
+  font-weight: 700;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+.dialog {
+  max-width: 420px;
+  margin: auto;
+}
+
+.shortcuts {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.shortcuts > div {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: 0.75rem;
+  align-items: baseline;
+}
+.shortcuts dt {
+  font-family: ui-monospace, monospace;
+  font-weight: 700;
+  background: var(--surface-2);
+  padding: 0.15rem 0.5rem;
+  border-radius: 8px;
+  justify-self: start;
+}
+.shortcuts dd {
+  margin: 0;
+}
+
+.fan-wrap {
+  flex: 1;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1rem;
+}
+.fan {
+  width: 100%;
+  max-width: 1100px;
+  height: auto;
+}
+.fan-slot path {
+  fill: var(--surface);
+  stroke: var(--border);
+  stroke-width: 1.5;
+  cursor: pointer;
+  transition: fill 0.15s ease;
+}
+.fan-slot.male path {
+  fill: color-mix(in srgb, var(--male) 20%, var(--surface));
+}
+.fan-slot.female path {
+  fill: color-mix(in srgb, var(--female) 20%, var(--surface));
+}
+.fan-slot.unknown path {
+  fill: var(--surface-2);
+}
+.fan-slot.empty path {
+  fill: transparent;
+  stroke-dasharray: 4 4;
+  opacity: 0.5;
+  cursor: default;
+}
+.fan-slot:hover path,
+.fan-slot.selected path {
+  stroke: var(--primary);
+  stroke-width: 2.5;
+}
+.fan-slot text,
+.fan-center text {
+  fill: var(--text);
+  pointer-events: none;
+}
+.fan-slot text.big {
+  font-size: 13px;
+}
+.fan-slot text.mid {
+  font-size: 11px;
+}
+.fan-slot text.small {
+  font-size: 9.5px;
+}
+.fan-slot .years,
+.fan-center .years {
+  fill: var(--muted);
+  font-size: 10px;
+}
+.fan-center circle {
+  fill: var(--primary);
+}
+.fan-center text {
+  fill: var(--primary-text);
+  font-size: 14px;
+}
+.fan-center .years {
+  fill: var(--primary-text);
+  opacity: 0.8;
+}

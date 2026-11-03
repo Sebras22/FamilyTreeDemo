@@ -1,0 +1,50 @@
+.form-tabs {
+  display: flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.6rem;
+}
+.form-tabs button {
+  background: transparent;
+  border-color: transparent;
+  color: var(--muted);
+  font-weight: 600;
+}
+.form-tabs button.active {
+  background: color-mix(in srgb, var(--primary) 14%, transparent);
+  color: var(--text);
+}
+.form-tabs button.problem::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--warn);
+}
+.sex-choice {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.sex-choice .label {
+  width: 100%;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.pill {
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+}
+.pill.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--primary-text);
+}
+.field-error {
+  color: var(--danger);
+}
+input.invalid {
+  border-color: var(--danger);
+}

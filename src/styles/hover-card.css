@@ -1,0 +1,116 @@
+.react-flow__node:hover {
+  z-index: 1000 !important;
+}
+.person-card {
+  --hover-color: var(--primary);
+}
+.person-card.sex-male {
+  --hover-color: var(--male);
+}
+.person-card.sex-female {
+  --hover-color: var(--female);
+}
+.person-card:hover:not(.selected):not(.has-warning) {
+  border-color: var(--hover-color);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--hover-color) 24%, transparent), 0 10px 26px color-mix(in srgb, var(--hover-color) 28%, transparent);
+}
+
+.hover-card {
+  --hover-color: var(--primary);
+  position: fixed;
+  width: 270px;
+  padding: 0.8rem 0.95rem 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  text-align: left;
+  background: var(--surface);
+  color: var(--text);
+  border: 2px solid var(--hover-color);
+  border-radius: var(--radius);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
+  pointer-events: none;
+  z-index: 2000;
+  cursor: default;
+}
+.hover-card.below {
+}
+.hover-card::after {
+  content: '';
+  position: absolute;
+  left: var(--arrow-x, 50%);
+  bottom: -8px;
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+  background: var(--surface);
+  border-right: 2px solid var(--hover-color);
+  border-bottom: 2px solid var(--hover-color);
+  transform: rotate(45deg);
+}
+.hover-card.below::after {
+  bottom: auto;
+  top: -8px;
+  transform: rotate(225deg);
+}
+.hover-name {
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+}
+.hover-relation {
+  align-self: flex-start;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.1rem 0.55rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--hover-color) 18%, transparent);
+}
+.hover-card dl {
+  margin: 0.1rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.hover-card dl > div {
+  display: grid;
+  grid-template-columns: 5.2rem 1fr;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  line-height: 1.25;
+}
+.hover-card dt {
+  color: var(--muted);
+}
+.hover-card dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.hover-warnings {
+  margin: 0.15rem 0 0;
+  padding: 0.35rem 0.5rem 0.35rem 1.2rem;
+  font-size: 0.78rem;
+  color: var(--warn);
+  background: color-mix(in srgb, var(--warn) 9%, transparent);
+  border-radius: 8px;
+}
+.hover-warnings.doubt {
+  color: var(--doubt);
+  background: color-mix(in srgb, var(--doubt) 11%, transparent);
+}
+.hover-hint {
+  margin-top: 0.15rem;
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+@media (hover: none) {
+  .hover-card {
+    display: none;
+  }
+}
+
+.hover-card.sex-male {
+  --hover-color: var(--male);
+}
+.hover-card.sex-female {
+  --hover-color: var(--female);
+}
