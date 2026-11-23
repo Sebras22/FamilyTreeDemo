@@ -7,7 +7,6 @@ import { formatDate, fullName, hasDate, lifeSpan } from '@/domain/dates'
 import { partnerOf } from '@/domain/graph'
 import { useI18n } from '@/shared/i18n/i18n'
 import { kinship, kinshipLabel } from '@/domain/kinship'
-import { usePhoto } from '@/features/persons/hooks/photos'
 import { TombstoneIcon } from '@/shared/ui/Icons'
 import Comments from './Comments'
 import PersonPicker from './PersonPicker'
@@ -18,10 +17,9 @@ import type { TimelineEvent } from '@/interfaces/components/TimelineEvent'
 
 function MiniCard({ person, to, hint }: MiniCardProps) {
   const { lang } = useI18n()
-  const photo = usePhoto(person.id, person.hasPhoto)
   return (
     <Link to={to} className={`mini-card sex-${person.sex.toLowerCase()}`}>
-      <span className="avatar">{photo ? <img src={photo} alt="" /> : <span>{(person.firstName[0] ?? '?').toUpperCase()}</span>}</span>
+      <span className="avatar"><span>{(person.firstName[0] ?? '?').toUpperCase()}</span></span>
       <span className="mini-text">
         <strong>{fullName(person)}</strong>
         <span className="muted">{[hint, lifeSpan(person, lang)].filter(Boolean).join(' · ')}</span>
@@ -32,7 +30,6 @@ function MiniCard({ person, to, hint }: MiniCardProps) {
 
 export default function PersonProfile({ graph, person, role, personUrl, backTo, backLabel, onEdit }: PersonProfileProps) {
   const { t, lang } = useI18n()
-  const photo = usePhoto(person.id, person.hasPhoto)
   const canEdit = role === 'EDITOR' || role === 'OWNER'
   const [compareId, setCompareId] = useState<number | null>(null)
 
@@ -95,7 +92,7 @@ export default function PersonProfile({ graph, person, role, personUrl, backTo, 
         </Link>
         <div className="profile-id">
           <div className={`avatar xl sex-${person.sex.toLowerCase()}`}>
-            {photo ? <img src={photo} alt="" /> : <span>{(person.firstName[0] ?? '?').toUpperCase()}</span>}
+            <span>{(person.firstName[0] ?? '?').toUpperCase()}</span>
           </div>
           <div>
             <h1>{fullName(person)}</h1>

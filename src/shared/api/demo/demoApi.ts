@@ -66,8 +66,7 @@ const floatingIds = (): Set<number> => {
 }
 
 const toPerson = (p: PersonRecord, floating: Set<number>): Person => {
-  const { photo, ...rest } = p
-  return { ...rest, living: isLiving(p), floating: floating.has(p.id), hasPhoto: photo != null }
+  return { ...p, living: isLiving(p), floating: floating.has(p.id) }
 }
 
 const label = (p: LabelProps) => `${p.firstName} ${p.lastName}`.trim()
@@ -140,7 +139,7 @@ function addCouple(treeId: number, c: CoupleInput): Couple {
 
 function createPerson(treeId: number, input: PersonInput): Person {
   findTree(treeId)
-  const record = { id: nextId(), treeId, deletedAt: null, photo: null } as PersonRecord
+  const record = { id: nextId(), treeId, deletedAt: null } as PersonRecord
   apply(record, input)
   state.persons.push(record)
   const rel = input.relateTo
@@ -209,10 +208,6 @@ function merge(keep: PersonRecord, remove: PersonRecord): Person {
   keep.biography ??= remove.biography
   keep.source ??= remove.source
   keep.sourceReliability ??= remove.sourceReliability
-  if (keep.photo == null) {
-    keep.photo = remove.photo
-    remove.photo = null
-  }
 
   remove.deletedAt = new Date().toISOString()
   log(keep.treeId, 'MERGE', keep)
@@ -363,20 +358,6 @@ export const demoApi: Api = {
         .filter((h) => h.treeId === treeId)
         .map((h): HistoryItem => ({ id: h.id, entityType: h.entityType, entityId: h.entityId, action: h.action, label: h.label, userName: h.userName, createdAt: h.createdAt })),
     ),
-
-  uploadPhoto: (id, file) => {
-    const p = findPerson(id)
-    p.photo = file
-    return delay(toPerson(p, floatingIds()))
-  },
-  deletePhoto: (id) => {
-    findPerson(id).photo = null
-    return delay(undefined)
-  },
-  photo: (id) => {
-    const photo = findPerson(id).photo
-    return photo ? Promise.resolve(photo) : Promise.reject(fail(404, 'Pas de photo'))
-  },
 
   links: (treeId) => delay(treeLinks(treeId)),
   addParentLink: (treeId, parentId, childId, linkType) => delay(addParentLink(treeId, parentId, childId, linkType)),

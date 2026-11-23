@@ -131,7 +131,8 @@
 }
 .dash-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-flow: dense;
   gap: 1rem;
 }
 .dash-grid .card {
@@ -224,6 +225,17 @@
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
+  flex: 1;
+  min-width: 0;
+}
+.donut li {
+  display: grid;
+  grid-template-columns: 10px 1fr auto;
+  align-items: center;
+  gap: 0.5rem;
+}
+.donut li strong {
+  font-variant-numeric: tabular-nums;
 }
 .donut .dot {
   display: inline-block;
@@ -241,9 +253,19 @@
 }
 .ranking li {
   display: grid;
-  grid-template-columns: minmax(70px, 1fr) 2fr auto;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) 2.2ch;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.75rem;
+}
+.ranking li > span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ranking li > strong {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
 }
 .rank-bar,
 .progress-bar {
@@ -270,8 +292,21 @@
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.1rem;
 }
-.quality .progress-bar {
-  margin-top: 0.4rem;
+.quality > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.quality > div > .row.between {
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+.quality > div > .progress-bar {
+  margin-top: auto;
+}
+.quality > div > .row.between > strong {
+  flex: none;
+  font-variant-numeric: tabular-nums;
 }
 .row.between {
   justify-content: space-between;
@@ -415,7 +450,7 @@
 
 .places-layout {
   display: grid;
-  grid-template-columns: minmax(220px, 340px) 1fr;
+  grid-template-columns: minmax(220px, 300px) 1fr;
   gap: 1.5rem;
   align-items: center;
 }
@@ -440,8 +475,26 @@
 }
 .france-caption {
   margin: 0.4rem 0 0;
+  height: 2.8em;
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  min-height: 1.4em;
+  overflow: hidden;
+}
+@media (max-width: 900px) {
+  .dash-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 620px) {
+  .dash-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .dash-grid .span2 {
+    grid-column: auto;
+  }
 }
 @media (max-width: 800px) {
   .places-layout {

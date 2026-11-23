@@ -330,7 +330,7 @@ export function importGedcom(state: DemoState, data: Uint8Array, treeName: strin
   for (const { xref, data: fields } of parsed.persons) {
     const id = state.nextId++
     ids.set(xref, id)
-    state.persons.push({ ...fields, id, treeId, deletedAt: null, photo: null })
+    state.persons.push({ ...fields, id, treeId, deletedAt: null })
   }
   for (const r of parsed.relations) {
     state.relations.push({ id: state.nextId++, treeId, personId: ids.get(r.person)!, relatedId: ids.get(r.related)!, type: r.type, note: r.note })

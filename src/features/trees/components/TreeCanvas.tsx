@@ -9,6 +9,7 @@ import { useI18n } from '@/shared/i18n/i18n'
 import { useCanvasViewport } from '../hooks/useCanvasViewport'
 import { useSettling, useTidy } from '../hooks/useCanvasMotion'
 import { useMultiSelection } from '../hooks/useMultiSelection'
+import { useNodeMeasures } from '../hooks/useNodeMeasures'
 import { useNodePositions } from '../hooks/useNodePositions'
 import { buildEdges } from './canvas/buildEdges'
 import { FamilyEdge } from './canvas/FamilyEdge'
@@ -31,6 +32,7 @@ function Canvas(props: CanvasProps) {
 
   const { multi, applySelection, clear, only } = useMultiSelection({ selectedId, clearNonce, onMultiChange, onSelect })
   const { positionOf, applyMoves, saveCurrent, reset } = useNodePositions(storageKey, layout.positions)
+  const { measures, applyMeasures } = useNodeMeasures()
   const { tidying, tidy } = useTidy(reset)
   const settling = useSettling(collapsed)
   const [selectMode, setSelectMode] = useState(false)
@@ -38,10 +40,11 @@ function Canvas(props: CanvasProps) {
 
   const onNodesChange = useCallback(
     (changes: NodeChange[]) => {
+      applyMeasures(changes)
       applySelection(changes)
       applyMoves(changes)
     },
-    [applySelection, applyMoves],
+    [applyMeasures, applySelection, applyMoves],
   )
 
   const nodes = useMemo<CardNode[]>(
@@ -54,6 +57,7 @@ function Canvas(props: CanvasProps) {
           position: positionOf(person.id),
           width: CARD_W,
           height: CARD_H,
+          measured: measures.get(String(person.id)),
           selected,
           data: {
             person,
@@ -75,7 +79,7 @@ function Canvas(props: CanvasProps) {
           },
         }
       }),
-    [visiblePersons, layout, positionOf, selectedId, multi, warnings, onConfirmWarning, graph, collapsed, onToggleCollapse, canEdit, onAdd, onContext, focusId],
+    [visiblePersons, layout, positionOf, measures, selectedId, multi, warnings, onConfirmWarning, graph, collapsed, onToggleCollapse, canEdit, onAdd, onContext, focusId],
   )
 
   const edges = useMemo(() => buildEdges(graph, visibleIds, positionOf, showRelations, t), [graph, visibleIds, positionOf, showRelations, t])

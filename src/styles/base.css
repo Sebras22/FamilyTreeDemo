@@ -15,8 +15,8 @@
   --doubt: #e8890c;
   --edge: #8b94a3;
   --couple: #d6409f;
-  --male: #4b86f0;
-  --female: #e0589e;
+  --male: #4f9d69;
+  --female: #6b7bd6;
   --radius: 16px;
   --radius-sm: 10px;
   --border-width: 1px;
@@ -41,8 +41,8 @@
   --doubt: #ffa23a;
   --edge: #8d97a8;
   --couple: #f06bb8;
-  --male: #6f9cf5;
-  --female: #f08ab8;
+  --male: #7ccf93;
+  --female: #93a2f0;
   --shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
   color-scheme: dark;
 }

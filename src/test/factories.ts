@@ -34,7 +34,6 @@ export function makePerson(id: number, overrides: Partial<Person> = {}): Person 
     biography: null,
     source: null,
     sourceReliability: null,
-    hasPhoto: false,
     floating: false,
     deletedAt: null,
     ...overrides,

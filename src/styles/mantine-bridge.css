@@ -11,3 +11,32 @@
 .mantine-modal-header {
   border-bottom: 1px solid var(--border);
 }
+:root[data-mantine-color-scheme] {
+  --mantine-radius-md: var(--radius-sm);
+  --mantine-radius-lg: var(--radius);
+}
+.mantine-Button-label {
+  gap: 0.5rem;
+}
+.mantine-Button-label svg {
+  flex: none;
+}
+.workspace > .mantine-Tabs-root > .mantine-Tabs-list {
+  padding: 0.5rem 1rem 0;
+  gap: 0.35rem;
+}
+.create-bar .mantine-Button-root {
+  border-radius: 999px;
+}
+.header-actions .chip,
+.tree-title .chip {
+  margin-left: 0;
+}
+.tree-title .chip {
+  margin-left: 0.35rem;
+}
+.icon-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}

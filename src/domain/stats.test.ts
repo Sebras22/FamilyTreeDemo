@@ -47,7 +47,7 @@ describe('computeTreeStats', () => {
   const now = new Date(2026, 5, 15)
   const persons = [
     makePerson(1, { sex: 'MALE', lastName: 'Martin', birth: date(1900), death: date(1990), birthPlace: 'Lyon' }),
-    makePerson(2, { sex: 'FEMALE', lastName: 'Martin', birth: date(1905), death: date(1960), birthPlace: 'Lyon', hasPhoto: true }),
+    makePerson(2, { sex: 'FEMALE', lastName: 'Martin', birth: date(1905), death: date(1960), birthPlace: 'Lyon' }),
     makePerson(3, { sex: 'FEMALE', lastName: 'Durand', birth: date(1930, 6, 20), living: true, birthPlace: 'Paris' }),
     makePerson(4, { sex: 'UNKNOWN', lastName: 'Seul', floating: true }),
   ]
@@ -83,7 +83,6 @@ describe('computeTreeStats', () => {
 
   it('compte les manques et anomalies de structure', () => {
     expect(stats.missingBirth).toBe(1)
-    expect(stats.missingPhoto).toBe(3)
     expect(stats.isolated).toBe(1)
     expect(stats.floating).toBe(1)
     expect(stats.couples).toBe(1)

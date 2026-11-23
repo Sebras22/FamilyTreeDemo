@@ -40,9 +40,6 @@ export interface Api {
   duplicates: (treeId: number) => Promise<DuplicateGroup[]>
   history: (treeId: number) => Promise<HistoryItem[]>
 
-  uploadPhoto: (id: number, file: File) => Promise<Person>
-  deletePhoto: (id: number) => Promise<void>
-  photo: (id: number) => Promise<Blob>
 
   links: (treeId: number) => Promise<TreeLinks>
   addParentLink: (treeId: number, parentId: number, childId: number, linkType: LinkType) => Promise<ParentLink>

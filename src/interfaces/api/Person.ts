@@ -24,7 +24,6 @@ export interface Person {
   biography: string | null
   source: string | null
   sourceReliability: Reliability | null
-  hasPhoto: boolean
   floating: boolean
   deletedAt: string | null
 }

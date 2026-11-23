@@ -14,7 +14,6 @@ export interface TreeStats {
   generations: number
   couples: number
   missingBirth: number
-  missingPhoto: number
   isolated: number
   floating: number
   withWarnings: number

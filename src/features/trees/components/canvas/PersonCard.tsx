@@ -5,7 +5,6 @@ import { memo, useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { Handle, Position, useStore, type NodeProps } from '@xyflow/react'
 import { fullName, lifeSpan } from '@/domain/dates'
-import { usePhoto } from '@/features/persons/hooks/photos'
 import { useI18n } from '@/shared/i18n/i18n'
 import { TombstoneIcon } from '@/shared/ui/Icons'
 import { HoverCard } from './HoverCard'
@@ -32,7 +31,6 @@ export const PersonCard = memo(function PersonCard({ data, dragging }: NodeProps
   const press = useRef<{ timer: number; x: number; y: number } | null>(null)
   const age = person.birth?.year != null ? (person.death?.year ?? (person.living ? new Date().getFullYear() : null)) : null
   const { lang, t } = useI18n()
-  const photo = usePhoto(person.id, person.hasPhoto)
   const doubts = warnings.filter((w) => w.severity === 'doubt' && !w.confirmed)
   const otherName = (w: Warning) => {
     const other = w.otherId != null ? graph.persons.get(w.otherId) : undefined
@@ -89,7 +87,7 @@ export const PersonCard = memo(function PersonCard({ data, dragging }: NodeProps
       <Handle id="r" type="source" position={Position.Right} />
       <Handle id="b" type="source" position={Position.Bottom} />
       <div className="avatar">
-        {photo ? <img src={photo} alt="" draggable={false} /> : <span>{(person.firstName[0] ?? '?').toUpperCase()}</span>}
+        <span>{(person.firstName[0] ?? '?').toUpperCase()}</span>
       </div>
       <div className="card-text">
         <strong>{fullName(person)}</strong>

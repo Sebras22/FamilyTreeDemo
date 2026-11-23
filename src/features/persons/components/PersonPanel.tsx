@@ -8,11 +8,9 @@ import { fullName, lifeSpan } from '@/domain/dates'
 import { nameOf, partnerOf } from '@/domain/graph'
 import { useI18n } from '@/shared/i18n/i18n'
 import { kinship, kinshipLabel } from '@/domain/kinship'
-import { usePhoto } from '@/features/persons/hooks/photos'
 import Comments from './Comments'
 import CoupleForm from './CoupleForm'
 import IdentitySection from './panel/IdentitySection'
-import PhotoSection from './panel/PhotoSection'
 import RelationsSection from './panel/RelationsSection'
 import { ChildrenSection, ParentsSection, UnionsSection } from './panel/FamilySections'
 import WarningsSections from './panel/WarningsSections'
@@ -24,7 +22,6 @@ export default function PersonPanel(props: PersonPanelProps) {
   const { treeId, person, graph, warnings, onConfirmWarning, focusId, role, selfId, onSetSelf, personUrl, onClose, onEdit, onAdd, onDelete, onFocus, onSelect, onChanged } = props
   const { t, lang } = useI18n()
   const canEdit = role === 'EDITOR' || role === 'OWNER'
-  const photo = usePhoto(person.id, person.hasPhoto)
   const [error, setError] = useState<string | null>(null)
   const [editingCouple, setEditingCouple] = useState<Couple | null>(null)
 
@@ -56,7 +53,7 @@ export default function PersonPanel(props: PersonPanelProps) {
     >
       <header className="panel-header">
         <div className="avatar large">
-          {photo ? <img src={photo} alt="" /> : <span>{(person.firstName[0] ?? '?').toUpperCase()}</span>}
+          <span>{(person.firstName[0] ?? '?').toUpperCase()}</span>
         </div>
         <div className="panel-title">
           <h2>{fullName(person)}</h2>
@@ -110,7 +107,6 @@ export default function PersonPanel(props: PersonPanelProps) {
         <UnionsSection {...section} onEditCouple={setEditingCouple} />
         <ChildrenSection {...section} />
         <RelationsSection {...section} />
-        {canEdit && <PhotoSection person={person} run={run} />}
         {role != null && <Comments person={person} canWrite={canEdit} />}
 
         {canEdit && (

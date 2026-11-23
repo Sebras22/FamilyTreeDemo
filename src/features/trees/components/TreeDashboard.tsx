@@ -1,5 +1,5 @@
 import { Anchor, Button } from '@mantine/core'
-import { CalendarHeart, Camera, Network, Users } from 'lucide-react'
+import { CalendarHeart, Network, Users } from 'lucide-react'
 import { motion } from 'motion/react'
 import { lazy, Suspense, useEffect, useMemo, useState } from 'react'
 import { api } from '@/shared/api/api'
@@ -117,7 +117,7 @@ export default function TreeDashboard({ graph, warnings, treeId, role, onOpenPer
         )}
 
         {role != null && (
-          <motion.section className="card" {...rise(9)}>
+          <motion.section className="card span2" {...rise(9)}>
             <h3>{t('dash.birthdays')}</h3>
             {stats.birthdays.length === 0 ? (
               <p className="muted">{t('dash.noBirthdays')}</p>
@@ -149,15 +149,6 @@ export default function TreeDashboard({ graph, warnings, treeId, role, onOpenPer
             </div>
             <div>
               <div className="row between">
-                <span>
-                  <Camera size={14} /> {t('dash.withPhoto')}
-                </span>
-                <strong>{total - stats.missingPhoto}/{total}</strong>
-              </div>
-              <Progress value={total - stats.missingPhoto} total={total} />
-            </div>
-            <div>
-              <div className="row between">
                 <span>{t('dash.consistent')}</span>
                 <strong>{total - stats.withWarnings}/{total}</strong>
               </div>
@@ -175,7 +166,7 @@ export default function TreeDashboard({ graph, warnings, treeId, role, onOpenPer
         </motion.section>
 
         {canEdit && (
-          <motion.section className="card span2" {...rise(11)}>
+          <motion.section className="card" {...rise(11)}>
             <h3>{t('dash.activity')}</h3>
             {activity === null ? (
               <p className="muted">{t('common.loading')}</p>

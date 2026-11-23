@@ -180,7 +180,6 @@ export default function TreesPage() {
             {(
               [
                 { kind: 'import', key: 'import' },
-                { kind: 'album', key: 'photos' },
               ] as { kind: IllustrationKind; key: string }[]
             ).map((tip, i) => (
               <motion.article
